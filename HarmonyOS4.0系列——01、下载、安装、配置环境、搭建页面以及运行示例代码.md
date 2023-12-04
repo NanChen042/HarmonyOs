@@ -1,28 +1,28 @@
 ## HarmonyOS4.0应用开发
 ### 安装编辑器
-![在这里插入图片描述](https://img-blog.csdnimg.cn/d12ee791d3d04727bfcd2dba0643d7a1.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/4945d2bb164c443b879d345cf808c593.png)
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9401%E3%80%81%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E3%80%81%E6%90%AD%E5%BB%BA%E9%A1%B5%E9%9D%A2%E4%BB%A5%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/image.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/1.png)
 这里安装windows版本为例
 ### 安装依赖
 打开`DevEco Studio`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/7b98a5e5dd5e4cd3ae3d7da3f51dcdb0.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/2.png)
 这八项全部打钩即可开始编写代码，如果存在x，需要安装正确的库即可
 ### 开发
 点击`Create Project`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/81b56927d15144b9a8e1fc4059ff62a0.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/3.png)
 选择默认模板——next
-![在这里插入图片描述](https://img-blog.csdnimg.cn/a28c50884617439f9d42b62dcc0b0838.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/e0111d159b72457196fd569f7b311677.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/4.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/5.png)
 Model部分分为`Stage`和`FA`两个应用模型，`FA`是支持7版本以内的模型支持JS和TS，而`Stage`支持最新版切只支持TS
-![在这里插入图片描述](https://img-blog.csdnimg.cn/e9ee7ddcc6774d4ba70ab9976e9472f4.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/6.png)
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/415d87c2e69b41fb8925e5bf30d05231.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/7.png)
 建议大家使用`Stage`模型
-![在这里插入图片描述](https://img-blog.csdnimg.cn/d95ac887f1f24ae08ced99067dfe6c98.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/19cdfbff78e74031add9807b27932eab.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/8.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/9.png)
 编辑好之后点击`Finish`
 进去后等加载完毕在右上角点击预览查看效果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/de43917cb3304868b84a4d6e508ef8e5.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/10.png)
 ```ts
 @Entry
 // 程序入口
@@ -56,17 +56,17 @@ struct Index {
 DevEco Studio提供自动更新代码和实时渲染的效果
 
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/c5cbec3347464bd4afbf3e0a8ccfafd2.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/11.png)
 电源键：打开状态下会进行实时更新，如果是关闭状态就不会进行更新，建议打开
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/66617d3114aa4163867146b79218d229.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/d656d82daca648d0b26d92fb0e666878.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/12.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/13.png)
 鸿蒙系统可以在一端代码兼容多端应用，那么如何看到pad端、桌面端等其他的调试效果呢？
-![在这里插入图片描述](https://img-blog.csdnimg.cn/6d402de040fa4d37bb6f129e685825cd.png)
-![请添加图片描述](https://img-blog.csdnimg.cn/184203004ab14596b5a015414ea05850.gif)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/14.png)
+![请添加图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/15.gif)
 如果开启了多端查询那么热更新是无法进行实时更新的，需要关闭一下
-![在这里插入图片描述](https://img-blog.csdnimg.cn/4e1c4db4386b4fd8b2e0c566e172c8c3.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/16.png)
 ### 真机调试
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2c46e061deeb4d13a0195914f2ca8864.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/6b913210daf848e5b1385e9ddada01b9.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/17.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——01、下载、安装、配置环境、搭建页面以及运行示例代码/18.png)
 这里要有绑定的华为设备就可以了，这里就不演示了
