@@ -24,7 +24,7 @@ Image("images/view.jpg").width(200);
 ```
 
 加载网络图片需要申请权限
-![在这里插入图片描述](https://img-blog.csdnimg.cn/0fe6bd9b4c0b4830afb14caf8c782185.png)
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9403%E3%80%81%E5%A3%B0%E6%98%8E%E5%BC%8FUI%E3%80%81%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E6%96%B9%E6%B3%95%E3%80%81%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%AE%80%E5%8D%95%E6%A1%88%E4%BE%8B/image.png)
 
 ```typescript
 Image(
@@ -56,7 +56,7 @@ struct DeclarativeUi {
 ```
 
 实际效果：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2295ec1d0d2546d4aedcd78c298f333e.png)
+![在这里插入图片描述](./assets/HarmonyOS4.0系列——03、声明式UI、链式编程、事件方法、以及自定义组件简单案例/3e.png)
 
 Resource 资源
 使用资源格式可以跨包/跨模块引入图片，resources 文件夹下的图片都可以通过$r 资源接口读取到并转换到 Resource 格式。
