@@ -37,7 +37,6 @@ struct First {
       Column() {
         Text('Southern Wind01')
           .fontSize(30)
-
         Button('click....')
           .width('40%')
           .height('40vp')
