@@ -23,13 +23,65 @@
 
 那么如何进行传参呢？
 ## @Extend()
+在@Styles的基础上，可以使用@Extend，用于扩展原生组件样式。
 ```js
 @Extend(Text) function textStyle(fs:number){
   .fontSize(fs).fontColor(Color.Pink)
 }
 ```
 
+使用规范：和`@Styles`不同，`@Extend`仅支持定义在全局，不支持在组件内部定义。
 
 
+```js
+@Extend(Text) function fancy () {
+  .fontColor(Color.Red)
+}
 
+// superFancyText可以调用预定义的fancy
+@Extend(Text) function superFancyText(size:number) {
+    .fontSize(size)
+    .fancy()
+}
+```
+
+例：
+```js
+@Entry
+@Component
+struct ExtendFun {
+  @State message: string = '@Extend'
+
+  build() {
+    Row() {
+      Column() {
+        // Text(this.message).fontSize(40)
+        Text('Southern Wind').superFancyText(40)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+
+}
+
+
+// @Extend(Text) function textStyle(fs:number){
+//   .fontSize(fs).fontColor(Color.Pink)
+// }
+
+@Extend(Text) function fancy () {
+  .fontColor(Color.Red)
+}
+
+// superFancyText可以调用预定义的fancy
+@Extend(Text) function superFancyText(size:number) {
+  .fontSize(size)
+  .fancy()
+}
+
+```
+效果：
+
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9404/image-1.png)
 
