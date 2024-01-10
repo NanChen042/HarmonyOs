@@ -11,6 +11,7 @@
 static Prop(propName: string): any
 ```
 
+
 与 AppStorage 中对应的 propName 建立单向属性绑定。如果给定的 propName 在 AppStorage 中存在，则返回与 AppStorage 中 propName 对应属性的单向绑定数据。如果 AppStorage 中不存在 propName，则返回 undefined。单向绑定数据的修改不会被同步回 AppStorage 中。
 prop 是单向绑定，但父级不会跟子集进行相应
 
