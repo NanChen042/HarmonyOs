@@ -187,3 +187,134 @@ struct Index_link {
 ![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/recording-2.gif)
 
 
+## 父孙组件传递 `@Provide`和 `  `  与后代组件双向同步
+
+父孙组件可以使用`@Link`来进行双向绑定，但是和子组件来说的话没法进行区分，所以需要使用`@Provide`和`@Consume`来进行区分。
+例：
+```ts
+@Entry
+@Component
+
+struct  Index{
+  @Provide message:string = '我是父组件'
+  build(){
+    Row(){
+      Column({space:20}){
+        Text(this.message).IndexTextStyle()
+          .onClick(()=>{
+            this.message = 'Southern Wind'
+          })
+        Divider()
+        Index_son()
+
+
+      }.width('100%')
+    }.height('100%')
+  }
+}
+
+
+@Component
+struct Index_son{
+  build(){
+    Column({space:30}){
+      Text('子组件').IndexTextStyle()
+      Divider()
+      Index_sun()
+    }
+  }
+}
+
+@Component
+struct Index_sun{
+  @Consume message:string
+  build(){
+    Column(){
+      Text('孙组件' + this.message).IndexTextStyle()
+        .onClick(()=>{
+          this.message = 'HarmonyOS 4.0'
+        })
+
+    }
+  }
+}
+
+@Extend(Text) function IndexTextStyle() {
+  .fontSize(30)
+}
+
+```
+
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/recording-3.gif)
+
+其中`@Provide`装饰的变量是在祖先节点中，可以理解为被“提供”给后代的状态变量。`@Consume`装饰的变量是在后代组件中，去“消费（绑定）”祖先节点提供的变量。
+
+
+** `@Provide`/`@Consume`装饰的状态变量有以下特性：**
+
+- `@Provide`装饰的状态变量自动对其所有后代组件可用，即该变量被“provide”给他的后代组件。由此可见，`@Provide`的方便之处在于，开发者不需要多次在组件之间传递变量。
+- 后代通过使用`@Consume`去获取`@Provide`提供的变量，建立在`@Provide`和`@Consume`之间的双向数据同步，与@State/@Link不同的是，前者可以在多层级的父子组件之间传递。
+- `@Provide`和`@Consume`可以通过相同的变量名或者相同的变量别名绑定，变量类型必须相同。
+```ts
+// 通过相同的变量名绑定
+@Provide a: number = 0;
+@Consume a: number;
+
+// 通过相同的变量别名绑定
+@Provide('a') b: number = 0;
+@Consume('a') c: number;
+```
+如果`@Provide`和`@Consume`绑定的变量名不相同，则可以通过变量别名来区分。
+```ts
+// 通过相同的变量别名绑定
+@Provide('a') b: number = 0;
+@Consume('d') c: number
+```
+
+## @Watch：状态变量更改通知
+@Watch应用于对状态变量的监听。如果开发者需要关注某个状态变量的值是否改变，可以使用@Watch为状态变量设置回调函数。
+
+@Watch用于监听状态变量的变化，当状态变量变化时，@Watch的回调方法将被调用。@Watch在ArkUI框架内部判断数值有无更新使用的是严格相等（===），遵循严格相等规范。当在严格相等为false的情况下，就会触发@Watch的回调。
+```ts
+@Entry
+@Component
+struct Index {
+  @State @Watch('change') count:number = 0
+  @State num:number = 2
+  @State total:number = 0
+  change(){
+    this.total = Math.pow(this.count,this.num)
+  }
+  build() {
+    Row(){
+      Column({space:20}) {
+        Text(`公式:${this.count}^${this.num}=${this.total}`).fontSize(30).fontColor(Color.Blue)
+        Divider()
+        Text('数字:'+this.count)
+          .fontSize(30)
+          .onClick(()=>{
+            this.count ++
+          })
+        Divider()
+        Text('次方:' + this.num).fontSize(25)
+          .onClick(()=>{
+            this.num ++
+          })
+        Divider()
+        Text('结果:'+this.total).fontSize(40)
+      }.width('100%')
+    }.height('100%')
+  }
+}
+
+```
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/recording-4.gif)
+当点击`次方`为文本时无法进行监听，这是因为num只是定义了双向绑定，没有设置状态监听
+
+这时需要将num 添加监听器
+```ts
+ @State @Watch('change') num:number = 0
+```
+
+效果：
+![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/recording-5.gif)
