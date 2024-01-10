@@ -1,4 +1,4 @@
-# 状态管理
+# HarmonyOS4.0系列——05、状态管理之@Prop、@Link、@Provide、@Consume，以及@Watch装饰器
 
 看下面这张图
 
@@ -188,7 +188,7 @@ struct Index_link {
 ![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/recording-2.gif)
 
 
-## 父孙组件传递 `@Provide`和 `  `  与后代组件双向同步
+## 父孙组件传递 `@Provide`和 `@Consume`  与后代组件双向同步
 
 父孙组件可以使用`@Link`来进行双向绑定，但是和子组件来说的话没法进行区分，所以需要使用`@Provide`和`@Consume`来进行区分。
 例：

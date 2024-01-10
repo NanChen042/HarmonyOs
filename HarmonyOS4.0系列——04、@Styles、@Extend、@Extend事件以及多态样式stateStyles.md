@@ -1,4 +1,5 @@
-# @Styles、@Extend、@Extend事件以及多态样式stateStyles
+# HarmonyOS4.0系列——04、@Styles、@Extend、@Extend事件以及多态样式stateStyles
+## @Styles、@Extend、@Extend事件以及多态样式stateStyles
 ## @Styles
 通用样式
 类似于css中的`class`
