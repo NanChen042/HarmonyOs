@@ -1,6 +1,6 @@
 # HarmonyOS4.0系列——05、状态管理之@Prop、@Link、@Provide、@Consume，以及@Watch装饰器
 
-看下面这张图
+看下面这张图:
 
 ![Alt text](assets/HarmonyOS4.0%E7%B3%BB%E5%88%97%E2%80%94%E2%80%9405%E3%80%81%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/image.png)
 `Components`部分的装饰器为组件级别的状态管理，`Application`部分为应用的状态管理。开发者可以通过@StorageLink/@LocalStorageLink 实现应用和组件状态的双向同步，通过@StorageProp/@LocalStorageProp 实现应用和组件状态的单向同步。
